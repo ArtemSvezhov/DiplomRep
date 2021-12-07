@@ -1,0 +1,48 @@
+﻿<Window x:Class="КурсовойПроект.Windows.ProVid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:КурсовойПроект.Windows"
+        mc:Ignorable="d"
+        Title="Окно просмотра видов страховок" Height="600" Width="515" Icon="/КурсовойПроект;component/BestIco_1.ico">
+    <Grid>
+
+        <DataGrid x:Name="grid1" AutoGenerateColumns="False" Margin="10,97,10,0"
+            CanUserAddRows="False" 
+                  CanUserDeleteRows="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding index_str}" Header="Индекс страхователя" Width="SizeToCells" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding naimenov_str}" Header="Наименование" Width="SizeToCells" IsReadOnly="False"/>
+                <DataGridTextColumn Binding="{Binding kategoria_str}" Header="Категория" Width="80" IsReadOnly="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" x:Name="exit" Margin="10,50,0,0" VerticalAlignment="Top" Height="34" Click="exit_Click" HorizontalAlignment="Left" Width="92"/>
+        <Button Content="Рассрочка" x:Name="rass" Height="34" VerticalAlignment="Top"  Margin="10,10,0,0" Click="rass_Click_1" HorizontalAlignment="Left" Width="92"/>
+        <Button Content="Единовременная" x:Name="edin" Height="34" VerticalAlignment="Top"  Margin="107,10,0,0" Click="edin_Click" HorizontalAlignment="Left" Width="97"/>
+        <Button Content="Страхователи" x:Name="strah" Height="34" VerticalAlignment="Top"  Margin="209,10,0,0" Click="strah_Click" HorizontalAlignment="Left" Width="92"/>
+        <Button Content="Изменить" x:Name="change" Margin="107,50,0,0" VerticalAlignment="Top" Height="34" Click="change_Click" HorizontalAlignment="Left" Width="97"/>
+        <Label Content="Категория: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="234,58,0,0"/>
+        <ComboBox Name="KategoriCombo" VerticalAlignment="Top" Margin="311,62,38,0" SelectionChanged="KategoriCombo_SelectionChanged">
+            <ComboBoxItem>
+                Все
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Юр. Лица
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Здоровье
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Имущество
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Автомобиль
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Путешествия
+            </ComboBoxItem>
+        </ComboBox>
+
+    </Grid>
+</Window>

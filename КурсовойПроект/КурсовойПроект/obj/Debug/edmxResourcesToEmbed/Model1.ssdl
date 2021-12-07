@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище kursacModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="agent">
+    <Key>
+      <PropertyRef Name="idagent" />
+    </Key>
+    <Property Name="idagent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO_agent" Type="varchar" MaxLength="50" />
+    <Property Name="agent_login" Type="varchar" MaxLength="15" />
+    <Property Name="agent_parol" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="edinovr_oplata">
+    <Key>
+      <PropertyRef Name="idedinovr_oplata" />
+    </Key>
+    <Property Name="idedinovr_oplata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idagent" Type="int" Nullable="false" />
+    <Property Name="index_str" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="idstrahovaya" Type="int" />
+    <Property Name="idstrahovately" Type="int" Nullable="false" />
+    <Property Name="nomer_dogovora" Type="varchar" MaxLength="45" />
+    <Property Name="data_nachala" Type="date" />
+    <Property Name="objecti" Type="nvarchar" MaxLength="50" />
+    <Property Name="data_okonchanya" Type="date" />
+    <Property Name="nachisl_str_perem" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="oplach_premya" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="bank_posr" Type="varchar" MaxLength="45" />
+    <Property Name="primechanya" Type="text" />
+  </EntityType>
+  <EntityType Name="rassrochka">
+    <Key>
+      <PropertyRef Name="idrassrochka" />
+    </Key>
+    <Property Name="idrassrochka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idagent" Type="int" Nullable="false" />
+    <Property Name="index_str" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="idstrahovately" Type="int" Nullable="false" />
+    <Property Name="nomer_dogovora" Type="varchar" MaxLength="45" />
+    <Property Name="objecti" Type="nvarchar" MaxLength="50" />
+    <Property Name="data_nachala" Type="date" />
+    <Property Name="idstrahovaya" Type="int" />
+    <Property Name="data_okonchanya" Type="date" />
+    <Property Name="nachisl_str_premya" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="oplach_premya" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="kol_platezh" Type="int" />
+    <Property Name="data_2pl" Type="date" />
+    <Property Name="data_3pl" Type="date" />
+    <Property Name="data_4pl" Type="date" />
+    <Property Name="summa_platezh" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="summa_2pl" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="summa_3pl" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="summa_4pl" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="bank_posr" Type="varchar" MaxLength="45" />
+    <Property Name="primechanya" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="strahovately">
+    <Key>
+      <PropertyRef Name="idstrahovately" />
+    </Key>
+    <Property Name="idstrahovately" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO_Namenov" Type="varchar" MaxLength="150" />
+    <Property Name="data_rozden" Type="date" />
+    <Property Name="address" Type="varchar" MaxLength="250" />
+    <Property Name="rab_telefon" Type="varchar" MaxLength="45" />
+    <Property Name="mob_telefon_1" Type="varchar" MaxLength="45" />
+    <Property Name="mob_telefon_2" Type="varchar" MaxLength="45" />
+    <Property Name="dom_telefon" Type="varchar" MaxLength="45" />
+    <Property Name="kategorya" Type="varchar" MaxLength="15" />
+    <Property Name="primechanya" Type="text" />
+  </EntityType>
+  <EntityType Name="strahovaya">
+    <Key>
+      <PropertyRef Name="idstrahovaya" />
+    </Key>
+    <Property Name="idstrahovaya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="naimenovStrahovaya" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="strahovki">
+    <Key>
+      <PropertyRef Name="index_str" />
+    </Key>
+    <Property Name="index_str" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="naimenov_str" Type="varchar" MaxLength="150" />
+    <Property Name="kategoria_str" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_edinovr_oplata_agent">
+    <End Role="agent" Type="Self.agent" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="edinovr_oplata" Type="Self.edinovr_oplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agent">
+        <PropertyRef Name="idagent" />
+      </Principal>
+      <Dependent Role="edinovr_oplata">
+        <PropertyRef Name="idagent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_edinovr_oplata_strahovately">
+    <End Role="strahovately" Type="Self.strahovately" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="edinovr_oplata" Type="Self.edinovr_oplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovately">
+        <PropertyRef Name="idstrahovately" />
+      </Principal>
+      <Dependent Role="edinovr_oplata">
+        <PropertyRef Name="idstrahovately" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_edinovr_oplata_strahovaya1">
+    <End Role="strahovaya" Type="Self.strahovaya" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="edinovr_oplata" Type="Self.edinovr_oplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovaya">
+        <PropertyRef Name="idstrahovaya" />
+      </Principal>
+      <Dependent Role="edinovr_oplata">
+        <PropertyRef Name="idstrahovaya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_edinovr_oplata_strahovki">
+    <End Role="strahovki" Type="Self.strahovki" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="edinovr_oplata" Type="Self.edinovr_oplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovki">
+        <PropertyRef Name="index_str" />
+      </Principal>
+      <Dependent Role="edinovr_oplata">
+        <PropertyRef Name="index_str" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rassrochka_agent">
+    <End Role="agent" Type="Self.agent" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="rassrochka" Type="Self.rassrochka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agent">
+        <PropertyRef Name="idagent" />
+      </Principal>
+      <Dependent Role="rassrochka">
+        <PropertyRef Name="idagent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rassrochka_strahovately">
+    <End Role="strahovately" Type="Self.strahovately" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="rassrochka" Type="Self.rassrochka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovately">
+        <PropertyRef Name="idstrahovately" />
+      </Principal>
+      <Dependent Role="rassrochka">
+        <PropertyRef Name="idstrahovately" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rassrochka_strahovaya">
+    <End Role="strahovaya" Type="Self.strahovaya" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="rassrochka" Type="Self.rassrochka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovaya">
+        <PropertyRef Name="idstrahovaya" />
+      </Principal>
+      <Dependent Role="rassrochka">
+        <PropertyRef Name="idstrahovaya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rassrochka_strahovki">
+    <End Role="strahovki" Type="Self.strahovki" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="rassrochka" Type="Self.rassrochka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovki">
+        <PropertyRef Name="index_str" />
+      </Principal>
+      <Dependent Role="rassrochka">
+        <PropertyRef Name="index_str" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище kursacModelContainer">
+    <EntitySet Name="agent" EntityType="Self.agent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="edinovr_oplata" EntityType="Self.edinovr_oplata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rassrochka" EntityType="Self.rassrochka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="strahovately" EntityType="Self.strahovately" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="strahovaya" EntityType="Self.strahovaya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="strahovki" EntityType="Self.strahovki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_edinovr_oplata_agent" Association="Self.FK_edinovr_oplata_agent">
+      <End Role="agent" EntitySet="agent" />
+      <End Role="edinovr_oplata" EntitySet="edinovr_oplata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_edinovr_oplata_strahovately" Association="Self.FK_edinovr_oplata_strahovately">
+      <End Role="strahovately" EntitySet="strahovately" />
+      <End Role="edinovr_oplata" EntitySet="edinovr_oplata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_edinovr_oplata_strahovaya1" Association="Self.FK_edinovr_oplata_strahovaya1">
+      <End Role="strahovaya" EntitySet="strahovaya" />
+      <End Role="edinovr_oplata" EntitySet="edinovr_oplata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_edinovr_oplata_strahovki" Association="Self.FK_edinovr_oplata_strahovki">
+      <End Role="strahovki" EntitySet="strahovki" />
+      <End Role="edinovr_oplata" EntitySet="edinovr_oplata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rassrochka_agent" Association="Self.FK_rassrochka_agent">
+      <End Role="agent" EntitySet="agent" />
+      <End Role="rassrochka" EntitySet="rassrochka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rassrochka_strahovately" Association="Self.FK_rassrochka_strahovately">
+      <End Role="strahovately" EntitySet="strahovately" />
+      <End Role="rassrochka" EntitySet="rassrochka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rassrochka_strahovaya" Association="Self.FK_rassrochka_strahovaya">
+      <End Role="strahovaya" EntitySet="strahovaya" />
+      <End Role="rassrochka" EntitySet="rassrochka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rassrochka_strahovki" Association="Self.FK_rassrochka_strahovki">
+      <End Role="strahovki" EntitySet="strahovki" />
+      <End Role="rassrochka" EntitySet="rassrochka" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище kursacModelContainer" CdmEntityContainer="kursacEntities">
+    <EntitySetMapping Name="agent">
+      <EntityTypeMapping TypeName="kursacModel.agent">
+        <MappingFragment StoreEntitySet="agent">
+          <ScalarProperty Name="idagent" ColumnName="idagent" />
+          <ScalarProperty Name="FIO_agent" ColumnName="FIO_agent" />
+          <ScalarProperty Name="agent_login" ColumnName="agent_login" />
+          <ScalarProperty Name="agent_parol" ColumnName="agent_parol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="edinovr_oplata">
+      <EntityTypeMapping TypeName="kursacModel.edinovr_oplata">
+        <MappingFragment StoreEntitySet="edinovr_oplata">
+          <ScalarProperty Name="idedinovr_oplata" ColumnName="idedinovr_oplata" />
+          <ScalarProperty Name="idagent" ColumnName="idagent" />
+          <ScalarProperty Name="index_str" ColumnName="index_str" />
+          <ScalarProperty Name="idstrahovately" ColumnName="idstrahovately" />
+          <ScalarProperty Name="nomer_dogovora" ColumnName="nomer_dogovora" />
+          <ScalarProperty Name="data_nachala" ColumnName="data_nachala" />
+          <ScalarProperty Name="data_okonchanya" ColumnName="data_okonchanya" />
+          <ScalarProperty Name="nachisl_str_perem" ColumnName="nachisl_str_perem" />
+          <ScalarProperty Name="oplach_premya" ColumnName="oplach_premya" />
+          <ScalarProperty Name="bank_posr" ColumnName="bank_posr" />
+          <ScalarProperty Name="primechanya" ColumnName="primechanya" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rassrochka">
+      <EntityTypeMapping TypeName="kursacModel.rassrochka">
+        <MappingFragment StoreEntitySet="rassrochka">
+          <ScalarProperty Name="idrassrochka" ColumnName="idrassrochka" />
+          <ScalarProperty Name="idagent" ColumnName="idagent" />
+          <ScalarProperty Name="index_str" ColumnName="index_str" />
+          <ScalarProperty Name="idstrahovately" ColumnName="idstrahovately" />
+          <ScalarProperty Name="nomer_dogovora" ColumnName="nomer_dogovora" />
+          <ScalarProperty Name="data_nachala" ColumnName="data_nachala" />
+          <ScalarProperty Name="data_okonchanya" ColumnName="data_okonchanya" />
+          <ScalarProperty Name="nachisl_str_premya" ColumnName="nachisl_str_premya" />
+          <ScalarProperty Name="oplach_premya" ColumnName="oplach_premya" />
+          <ScalarProperty Name="kol_platezh" ColumnName="kol_platezh" />
+          <ScalarProperty Name="data_2pl" ColumnName="data_2pl" />
+          <ScalarProperty Name="data_3pl" ColumnName="data_3pl" />
+          <ScalarProperty Name="data_4pl" ColumnName="data_4pl" />
+          <ScalarProperty Name="summa_platezh" ColumnName="summa_platezh" />
+          <ScalarProperty Name="summa_2pl" ColumnName="summa_2pl" />
+          <ScalarProperty Name="summa_3pl" ColumnName="summa_3pl" />
+          <ScalarProperty Name="summa_4pl" ColumnName="summa_4pl" />
+          <ScalarProperty Name="bank_posr" ColumnName="bank_posr" />
+          <ScalarProperty Name="primechanya" ColumnName="primechanya" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="strahovately">
+      <EntityTypeMapping TypeName="kursacModel.strahovately">
+        <MappingFragment StoreEntitySet="strahovately">
+          <ScalarProperty Name="idstrahovately" ColumnName="idstrahovately" />
+          <ScalarProperty Name="FIO_Namenov" ColumnName="FIO_Namenov" />
+          <ScalarProperty Name="data_rozden" ColumnName="data_rozden" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="rab_telefon" ColumnName="rab_telefon" />
+          <ScalarProperty Name="mob_telefon_1" ColumnName="mob_telefon_1" />
+          <ScalarProperty Name="mob_telefon_2" ColumnName="mob_telefon_2" />
+          <ScalarProperty Name="dom_telefon" ColumnName="dom_telefon" />
+          <ScalarProperty Name="kategorya" ColumnName="kategorya" />
+          <ScalarProperty Name="primechanya" ColumnName="primechanya" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="strahovki">
+      <EntityTypeMapping TypeName="kursacModel.strahovki">
+        <MappingFragment StoreEntitySet="strahovki">
+          <ScalarProperty Name="index_str" ColumnName="index_str" />
+          <ScalarProperty Name="naimenov_str" ColumnName="naimenov_str" />
+          <ScalarProperty Name="kategoria_str" ColumnName="kategoria_str" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="kursacModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище kursacModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище kursacModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище kursacModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище kursacModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="kursacModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище kursacModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="kursacModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище kursacModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище kursacModel.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

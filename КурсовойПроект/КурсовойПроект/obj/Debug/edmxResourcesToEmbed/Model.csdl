@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kursacModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="agent">
+    <Key>
+      <PropertyRef Name="idagent" />
+    </Key>
+    <Property Name="idagent" Type="Int32" Nullable="false" />
+    <Property Name="FIO_agent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="agent_login" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="agent_parol" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="edinovr_oplata" Relationship="Self.FK_edinovr_oplata_agent" FromRole="agent" ToRole="edinovr_oplata" />
+    <NavigationProperty Name="rassrochka" Relationship="Self.FK_rassrochka_agent" FromRole="agent" ToRole="rassrochka" />
+  </EntityType>
+  <EntityType Name="edinovr_oplata">
+    <Key>
+      <PropertyRef Name="idedinovr_oplata" />
+    </Key>
+    <Property Name="idedinovr_oplata" Type="Int32" Nullable="false" />
+    <Property Name="idagent" Type="Int32" Nullable="false" />
+    <Property Name="index_str" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idstrahovately" Type="Int32" Nullable="false" />
+    <Property Name="nomer_dogovora" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="data_nachala" Type="DateTime" Precision="0" />
+    <Property Name="data_okonchanya" Type="DateTime" Precision="0" />
+    <Property Name="nachisl_str_perem" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="oplach_premya" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="bank_posr" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="primechanya" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="agent" Relationship="Self.FK_edinovr_oplata_agent" FromRole="edinovr_oplata" ToRole="agent" />
+    <NavigationProperty Name="strahovately" Relationship="Self.FK_edinovr_oplata_strahovately" FromRole="edinovr_oplata" ToRole="strahovately" />
+    <NavigationProperty Name="strahovki" Relationship="Self.FK_edinovr_oplata_strahovki" FromRole="edinovr_oplata" ToRole="strahovki" />
+  </EntityType>
+  <EntityType Name="rassrochka">
+    <Key>
+      <PropertyRef Name="idrassrochka" />
+    </Key>
+    <Property Name="idrassrochka" Type="Int32" Nullable="false" />
+    <Property Name="idagent" Type="Int32" Nullable="false" />
+    <Property Name="index_str" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idstrahovately" Type="Int32" Nullable="false" />
+    <Property Name="nomer_dogovora" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="data_nachala" Type="DateTime" Precision="0" />
+    <Property Name="data_okonchanya" Type="DateTime" Precision="0" />
+    <Property Name="nachisl_str_premya" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="oplach_premya" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="kol_platezh" Type="Int32" />
+    <Property Name="data_2pl" Type="DateTime" Precision="0" />
+    <Property Name="data_3pl" Type="DateTime" Precision="0" />
+    <Property Name="data_4pl" Type="DateTime" Precision="0" />
+    <Property Name="summa_platezh" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="summa_2pl" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="summa_3pl" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="summa_4pl" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="bank_posr" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="primechanya" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="agent" Relationship="Self.FK_rassrochka_agent" FromRole="rassrochka" ToRole="agent" />
+    <NavigationProperty Name="strahovately" Relationship="Self.FK_rassrochka_strahovately" FromRole="rassrochka" ToRole="strahovately" />
+    <NavigationProperty Name="strahovki" Relationship="Self.FK_rassrochka_strahovki" FromRole="rassrochka" ToRole="strahovki" />
+  </EntityType>
+  <EntityType Name="strahovately">
+    <Key>
+      <PropertyRef Name="idstrahovately" />
+    </Key>
+    <Property Name="idstrahovately" Type="Int32" Nullable="false" />
+    <Property Name="FIO_Namenov" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="data_rozden" Type="DateTime" Precision="0" />
+    <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="rab_telefon" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="mob_telefon_1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="mob_telefon_2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="dom_telefon" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="kategorya" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="primechanya" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="edinovr_oplata" Relationship="Self.FK_edinovr_oplata_strahovately" FromRole="strahovately" ToRole="edinovr_oplata" />
+    <NavigationProperty Name="rassrochka" Relationship="Self.FK_rassrochka_strahovately" FromRole="strahovately" ToRole="rassrochka" />
+  </EntityType>
+  <EntityType Name="strahovki">
+    <Key>
+      <PropertyRef Name="index_str" />
+    </Key>
+    <Property Name="index_str" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="naimenov_str" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="kategoria_str" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="edinovr_oplata" Relationship="Self.FK_edinovr_oplata_strahovki" FromRole="strahovki" ToRole="edinovr_oplata" />
+    <NavigationProperty Name="rassrochka" Relationship="Self.FK_rassrochka_strahovki" FromRole="strahovki" ToRole="rassrochka" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_edinovr_oplata_agent">
+    <End Role="agent" Type="Self.agent" Multiplicity="1" />
+    <End Role="edinovr_oplata" Type="Self.edinovr_oplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agent">
+        <PropertyRef Name="idagent" />
+      </Principal>
+      <Dependent Role="edinovr_oplata">
+        <PropertyRef Name="idagent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rassrochka_agent">
+    <End Role="agent" Type="Self.agent" Multiplicity="1" />
+    <End Role="rassrochka" Type="Self.rassrochka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agent">
+        <PropertyRef Name="idagent" />
+      </Principal>
+      <Dependent Role="rassrochka">
+        <PropertyRef Name="idagent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_edinovr_oplata_strahovately">
+    <End Role="strahovately" Type="Self.strahovately" Multiplicity="1" />
+    <End Role="edinovr_oplata" Type="Self.edinovr_oplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovately">
+        <PropertyRef Name="idstrahovately" />
+      </Principal>
+      <Dependent Role="edinovr_oplata">
+        <PropertyRef Name="idstrahovately" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_edinovr_oplata_strahovki">
+    <End Role="strahovki" Type="Self.strahovki" Multiplicity="1" />
+    <End Role="edinovr_oplata" Type="Self.edinovr_oplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovki">
+        <PropertyRef Name="index_str" />
+      </Principal>
+      <Dependent Role="edinovr_oplata">
+        <PropertyRef Name="index_str" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rassrochka_strahovately">
+    <End Role="strahovately" Type="Self.strahovately" Multiplicity="1" />
+    <End Role="rassrochka" Type="Self.rassrochka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovately">
+        <PropertyRef Name="idstrahovately" />
+      </Principal>
+      <Dependent Role="rassrochka">
+        <PropertyRef Name="idstrahovately" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rassrochka_strahovki">
+    <End Role="strahovki" Type="Self.strahovki" Multiplicity="1" />
+    <End Role="rassrochka" Type="Self.rassrochka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="strahovki">
+        <PropertyRef Name="index_str" />
+      </Principal>
+      <Dependent Role="rassrochka">
+        <PropertyRef Name="index_str" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="kursacEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="agent" EntityType="Self.agent" />
+    <EntitySet Name="edinovr_oplata" EntityType="Self.edinovr_oplata" />
+    <EntitySet Name="rassrochka" EntityType="Self.rassrochka" />
+    <EntitySet Name="strahovately" EntityType="Self.strahovately" />
+    <EntitySet Name="strahovki" EntityType="Self.strahovki" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_edinovr_oplata_agent" Association="Self.FK_edinovr_oplata_agent">
+      <End Role="agent" EntitySet="agent" />
+      <End Role="edinovr_oplata" EntitySet="edinovr_oplata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rassrochka_agent" Association="Self.FK_rassrochka_agent">
+      <End Role="agent" EntitySet="agent" />
+      <End Role="rassrochka" EntitySet="rassrochka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_edinovr_oplata_strahovately" Association="Self.FK_edinovr_oplata_strahovately">
+      <End Role="strahovately" EntitySet="strahovately" />
+      <End Role="edinovr_oplata" EntitySet="edinovr_oplata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_edinovr_oplata_strahovki" Association="Self.FK_edinovr_oplata_strahovki">
+      <End Role="strahovki" EntitySet="strahovki" />
+      <End Role="edinovr_oplata" EntitySet="edinovr_oplata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rassrochka_strahovately" Association="Self.FK_rassrochka_strahovately">
+      <End Role="strahovately" EntitySet="strahovately" />
+      <End Role="rassrochka" EntitySet="rassrochka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rassrochka_strahovki" Association="Self.FK_rassrochka_strahovki">
+      <End Role="strahovki" EntitySet="strahovki" />
+      <End Role="rassrochka" EntitySet="rassrochka" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(kursacModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(kursacModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

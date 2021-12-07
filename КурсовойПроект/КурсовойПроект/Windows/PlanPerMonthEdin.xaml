@@ -1,0 +1,30 @@
+﻿<Window x:Class="КурсовойПроект.Windows.PlanPerMonthEdin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:КурсовойПроект.Windows"
+        mc:Ignorable="d"
+        Title="План на месяц" Height="450" Width="800">
+    <Grid>
+        
+        <DataGrid x:Name="grid1" AutoGenerateColumns="False" Margin="10,49,10,0"
+            CanUserAddRows="False" 
+                  CanUserDeleteRows="False" 
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding strahovately.FIO_Namenov}" Header="ФИО/Наименование" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding index_str}" Header="Индекс" Width="40"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding data_nachala, StringFormat=MM/dd/yyyy}" Header="Дата начала" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding objecti}" Header="Объект" Width="80"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding strahovaya.naimenovStrahovaya}" Header="Страховая" Width="100"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding data_okonchanya, StringFormat=MM/dd/yyyy}" Header="Дата окончания" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding nomer_dogovora}" Header="Номер договора" Width="80"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding oplach_premya}" Header="Оплаченная премия" Width="80"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding bank_posr}" Header="Банк поср." Width="80"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding primechanya}" Header="Примечание" Width="SizeToCells"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" x:Name="exit" HorizontalAlignment="Left" Margin="10,10,0,0" Width="95" Click="exit_Click" VerticalAlignment="Top" Height="34"/>
+    </Grid>
+</Window>

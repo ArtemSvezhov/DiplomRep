@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6bca82f2db8a4aef8571f03917413af3" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="kursacModel.agent" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursacModel.edinovr_oplata" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursacModel.rassrochka" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursacModel.strahovately" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursacModel.strahovki" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kursacModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="kursacModel.FK_edinovr_oplata_agent" ManuallyRouted="false" />
+        <AssociationConnector Association="kursacModel.FK_rassrochka_agent" ManuallyRouted="false" />
+        <AssociationConnector Association="kursacModel.FK_edinovr_oplata_strahovately" ManuallyRouted="false" />
+        <AssociationConnector Association="kursacModel.FK_edinovr_oplata_strahovki" ManuallyRouted="false" />
+        <AssociationConnector Association="kursacModel.FK_rassrochka_strahovately" ManuallyRouted="false" />
+        <AssociationConnector Association="kursacModel.FK_rassrochka_strahovki" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="kursacModel.strahovaya" Width="1.5" PointX="8.625" PointY="6.125" />
+        <AssociationConnector Association="kursacModel.FK_edinovr_oplata_strahovaya" />
+        <AssociationConnector Association="kursacModel.FK_rassrochka_strahovaya" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

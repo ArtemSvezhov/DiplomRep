@@ -1,0 +1,64 @@
+﻿<Window x:Class="КурсовойПроект.Windows.ProsmotrRassroch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:КурсовойПроект.Windows"
+        mc:Ignorable="d"
+        Title="Окно просмотра с оплатой в рассрочку" Height="600" Width="917" Icon="/КурсовойПроект;component/BestIco_1.ico">
+    <Grid>
+        <DataGrid x:Name="grid1" AutoGenerateColumns="False" Margin="10,68,10,0"
+            CanUserAddRows="False"
+                  CanUserDeleteRows="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding strahovately.FIO_Namenov}" Header="ФИО/Наименование" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding index_str}" Header="Индекс" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding data_nachala, StringFormat=MM/dd/yyyy}" Header="Дата начала" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding data_okonchanya, StringFormat=MM/dd/yyyy}" Header="Дата окончания" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding nomer_dogovora}" Header="Номер договора" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding strahovaya.naimenovStrahovaya}" Header="Страховая" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding objecti}" Header="Объект" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding nachisl_str_perem}" Header="Начальная премия" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding oplach_premya}" Header="Оплаченная премия" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding kol_platezh}" Header="Кол-во платежей" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding data_2pl, StringFormat=MM/dd/yyyy}" Header="Дата 2ого платежа" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding data_3pl, StringFormat=MM/dd/yyyy}" Header="Дата 3ого платежа" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding data_4pl, StringFormat=MM/dd/yyyy}" Header="Дата 4ого платежа" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding summa_2pl}" Header="Сумма 2ого пл" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding summa_3pl}" Header="Сумма 3ого пл" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding summa_4pl}" Header="Сумма 4ого пл" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding summa_platezh}" Header="Общая сумма" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding bank_posr}" Header="Банк поср." Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding primechanya}" Header="Примечание" Width="SizeToCells"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Назад" x:Name="exit" HorizontalAlignment="Left" Margin="404,29,0,0" Width="98" Click="exit_Click" VerticalAlignment="Top" Height="34"/>
+        <Button Content="Единовременная" x:Name="edin" HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="98"  Margin="10,29,0,0" Click="edin_Click"/>
+        <Button Content="Страхователи" x:Name="strah" HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="92"  Margin="112,29,0,0" Click="strah_Click"/>
+        <Button Content="Страховки" x:Name="Страховки" HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="92"  Margin="210,29,0,0" Click="Страховки_Click"/>
+        <Button Content="Изменить" x:Name="change" HorizontalAlignment="Left" Margin="306,29,0,0" VerticalAlignment="Top"  Width="92" Height="34" Click="change_Click"/>
+        <Label Content="Страховая" HorizontalAlignment="Left" Margin="512,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboStrahov" HorizontalAlignment="Left" Margin="512,41,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboStrahov_SelectionChanged">
+            <ComboBoxItem Content="Все"/>
+        </ComboBox>
+        <ComboBox x:Name="ComboMonth" HorizontalAlignment="Left" Margin="642,41,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboMonth_SelectionChanged">
+            <ComboBoxItem Content="Январь"/>
+            <ComboBoxItem Content="Февраль"/>
+            <ComboBoxItem Content="Март"/>
+            <ComboBoxItem Content="Апрель"/>
+            <ComboBoxItem Content="Май"/>
+            <ComboBoxItem Content="Июнь"/>
+            <ComboBoxItem Content="Июль"/>
+            <ComboBoxItem Content="Август"/>
+            <ComboBoxItem Content="Сентябрь"/>
+            <ComboBoxItem Content="Октябрь"/>
+            <ComboBoxItem Content="Ноябрь"/>
+            <ComboBoxItem Content="Декабрь"/>
+            <ComboBoxItem Content="Все"/>
+        </ComboBox>
+        <Label x:Name="labelMonthCheck" Content="Месяц" HorizontalAlignment="Left" Margin="642,10,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,59 @@
+﻿<Window x:Class="КурсовойПроект.Windows.ProsmotrEdin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:КурсовойПроект.Windows"
+        mc:Ignorable="d"
+        Title="Окно просмотра с единовременной оплатой" Height="600" Width="917" Icon="/КурсовойПроект;component/BestIco_1.ico">
+    <Grid>
+        <DataGrid Name="grid1" AutoGenerateColumns="False" Margin="10,67,0,0"
+            CanUserAddRows="False"
+                  CanUserDeleteRows="True"
+                  HorizontalAlignment="Left" Width="889"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding strahovately.FIO_Namenov}" Header="ФИО/Наименование" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding index_str}" Header="Индекс" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding data_nachala, StringFormat=MM/dd/yyyy}" Header="Дата начала" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding strahovaya.naimenovStrahovaya}" Header="Страховая" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding objecti}" Header="Объект" Width="SizeToCells"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding data_okonchanya, StringFormat=MM/dd/yyyy}" Header="Дата окончания" Width="60"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding nomer_dogovora}" Header="Номер договора" Width="80"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding nachisl_str_perem}" Header="Начальная премия" Width="80"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding oplach_premya}" Header="Оплаченная премия" Width="80"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding bank_posr}" Header="Банк поср." Width="80"/>
+                <DataGridTextColumn IsReadOnly="False" Binding="{Binding primechanya}" Header="Примечание" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Назад" x:Name="exit" HorizontalAlignment="Left" Margin="398,28,0,0" Width="92" Click="exit_Click" VerticalAlignment="Top" Height="34"/>
+        <Button Content="Рассрочка" x:Name="rass" HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="92"  Margin="10,28,0,0" Click="rass_Click_1"/>
+        <Button Content="Страхователи" x:Name="strah" HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="92"  Margin="107,28,0,0" Click="strah_Click"/>
+        <Button Content="Страховки" x:Name="Страховки" HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="92"  Margin="204,28,0,0" Click="Страховки_Click"/>
+        <Button Content="Изменить" x:Name="change" HorizontalAlignment="Left" Margin="301,28,0,0" VerticalAlignment="Top"  Width="92" Height="34" Click="change_Click"/>
+        <Label Content="Страховая" HorizontalAlignment="Left" Margin="501,8,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="comboStrahov" HorizontalAlignment="Left" Margin="500,34,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboStrahov_SelectionChanged" Height="24">
+            <ComboBoxItem>
+                Все
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="ComboMonth" HorizontalAlignment="Left" Margin="635,34,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboMonth_SelectionChanged" Height="24">
+            <ComboBoxItem Content="Январь"/>
+            <ComboBoxItem Content="Февраль"/>
+            <ComboBoxItem Content="Март"/>
+            <ComboBoxItem Content="Апрель"/>
+            <ComboBoxItem Content="Май"/>
+            <ComboBoxItem Content="Июнь"/>
+            <ComboBoxItem Content="Июль"/>
+            <ComboBoxItem Content="Август"/>
+            <ComboBoxItem Content="Сентябрь"/>
+            <ComboBoxItem Content="Октябрь"/>
+            <ComboBoxItem Content="Ноябрь"/>
+            <ComboBoxItem Content="Декабрь"/>
+            <ComboBoxItem Content="Все"/>
+        </ComboBox>
+
+        <Label Name="labelMonthCheck" Content="Месяц" HorizontalAlignment="Left" Margin="635,10,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
